@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Emberlight Fantasy Book Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8eee7;--ink:#17262b;--mute:#4d6168;--line:#b6c4bd;--accent:#6b2d5c;--on-accent:#fff;--gold:#8a6414;--surface:#f4f7f2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101c22;--ink:#e6ede3;--mute:#9fb2b0;--line:#2c424a;--accent:#d9a441;--on-accent:#101c22;--gold:#d9a441;--surface:#16262d}}
+:root[data-theme="dark"]{--bg:#101c22;--ink:#e6ede3;--mute:#9fb2b0;--line:#2c424a;--accent:#d9a441;--on-accent:#101c22;--gold:#d9a441;--surface:#16262d}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "Work Sans",system-ui,sans-serif}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:"IM Fell English",Georgia,serif;font-weight:400;line-height:1.1;margin:0}
+.hero{display:grid;gap:2.5rem;padding:4rem 0 3rem;grid-template-columns:1fr}
+@media(min-width:56rem){.hero{grid-template-columns:1.1fr .9fr;align-items:center;padding:6rem 0 4rem}}
+h1{font-size:clamp(2.6rem,7vw,4.6rem);letter-spacing:-.01em}
+.lede{font-size:1.2rem;color:var(--mute);max-width:34rem;margin:1.25rem 0 1.75rem}
+form{max-width:32rem}
+.row{display:flex;gap:.5rem;flex-wrap:wrap}
+input[type=email]{flex:1 1 14rem;padding:.85rem 1rem;font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:.4rem}
+button{padding:.85rem 1.4rem;font:600 1rem "Work Sans",sans-serif;color:var(--on-accent);background:var(--accent);border:0;border-radius:.4rem;cursor:pointer}
+input:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.consent{display:flex;gap:.6rem;margin-top:.9rem;font-size:.9rem;color:var(--mute)}
+.consent input{margin-top:.3rem;accent-color:var(--accent)}
+#msg{margin-top:1rem;min-height:1.5rem;font-weight:500}
+.map{width:100%;height:auto}
+.map text{font-family:"IM Fell English",Georgia,serif;fill:var(--ink)}
+.route{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:3 9;stroke-linecap:round}
+@media(prefers-reduced-motion:no-preference){.route{animation:walk 2.4s ease-out both}@keyframes walk{from{stroke-dasharray:3 9 0 600;stroke-dashoffset:0;opacity:0}to{opacity:1}}}
+.pin{fill:var(--bg);stroke:var(--accent);stroke-width:2.5}
+section{border-top:1px solid var(--line);padding:3rem 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.5rem}
+.three{display:grid;gap:2rem;grid-template-columns:1fr}
+@media(min-width:48rem){.three{grid-template-columns:repeat(3,1fr)}}
+h3{font-size:1.5rem;margin-bottom:.4rem}
+.three p,.month p{margin:0;color:var(--mute);max-width:26rem}
+.month{max-width:40rem}
+.month h3{color:var(--gold)}
+.quest{margin-top:1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;font-size:.9rem;color:var(--mute)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="hero">
+<div>
+<h1>One fantasy book a month. One quest to finish it.</h1>
+<p class="lede">Emberlight is a monthly book club for fantasy readers. Each month brings one hand-picked book, a weekly discussion, and a themed challenge to try while you read.</p>
+<form id="f" novalidate>
+<div class="row">
+<input type="email" id="email" name="email" placeholder="you@example.com" aria-label="Email address" required autocomplete="email">
+<button type="submit">Join the waitlist</button>
+</div>
+<label class="consent"><input type="checkbox" id="ok" required><span>I agree to receive emails about Emberlight. I can unsubscribe at any time.</span></label>
+<div id="msg" role="status" aria-live="polite"></div>
+</form>
+</div>
+<svg class="map" viewBox="0 0 400 360" role="img" aria-label="A winding route through three months of reading">
+<path class="route" d="M50 310 C 130 300, 90 210, 180 200 S 300 150, 260 90 S 330 40, 350 40"/>
+<circle class="pin" cx="50" cy="310" r="11"/><text x="72" y="316" font-size="20">Month 1</text>
+<circle class="pin" cx="180" cy="200" r="11"/><text x="200" y="222" font-size="20">Month 2</text>
+<circle class="pin" cx="350" cy="40" r="11"/><text x="262" y="30" font-size="20">Month 3</text>
+</svg>
+</div>
+
+<section>
+<h2>How it works</h2>
+<div class="three">
+<div><h3>Get the pick</h3><p>On the first of the month, we announce one fantasy book, with a short note on why it’s worth your time.</p></div>
+<div><h3>Talk it through</h3><p>Weekly discussion threads are spoiler-safe until the schedule says otherwise. Read at your own pace.</p></div>
+<div><h3>Take the quest</h3><p>Every month has a small themed challenge, such as drawing a map or writing a scene from a side character’s view.</p></div>
+</div>
+</section>
+
+<section>
+<div class="month">
+<h2>A look at month one</h2>
+<h3>Theme: found family</h3>
+<p>Our first pick is announced to the waitlist before anyone else. Founding members get the first month free.</p>
+<div class="quest"><p>Quest: describe your own party in three lines. Who is the healer, the thief, and the one who keeps everyone fed?</p></div>
+</div>
+</section>
+</main>
+<footer><div class="wrap">Emberlight is a pilot project. We store your email only to send club updates, and never share it.</div></footer>
+<script>
+(function(){
+var f=document.getElementById("f"),m=document.getElementById("msg");
+var p=new URLSearchParams(location.search),utm={};
+["utm_source","utm_medium","utm_campaign","utm_content"].forEach(function(k){if(p.get(k))utm[k]=p.get(k)});
+f.addEventListener("submit",function(e){
+e.preventDefault();
+var v=document.getElementById("email").value.trim();
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){m.textContent="Enter a valid email address, like name@example.com.";return}
+if(!document.getElementById("ok").checked){m.textContent="Tick the box to confirm you want to receive emails.";return}
+try{localStorage.setItem("emberlight_signup",JSON.stringify({email:v,utm:utm}))}catch(err){}
+/* TODO: send {email, utm} to your email tool (MailerLite/Buttondown) and fire a GA4 "sign_up" event here */
+m.textContent="You’re on the list. Watch your inbox for the first pick.";
+f.reset();
+});
+})();
+</script>
+</body>
+</html>
